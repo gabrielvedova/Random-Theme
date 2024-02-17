@@ -1,12 +1,26 @@
 #!/usr/bin/python3
 import tkinter as ttk
-import Regras as Rg
-import dados as d
 import random
+
+# Recebendo arquivo csv
+# Animal
+
+arq_anim = open('animais.csv')
+dad_anim = arq_anim.read().splitlines()
+dad_anim.remove(dad_anim[0])
+arq_anim.close()
+
+# Tema
+arq_tema = open('tema.csv')
+dad_tema = arq_tema.read().splitlines()
+dad_tema.remove(dad_tema[0])
+arq_tema.close()
+
+# Random dos dados
 
 
 def aperte_sim():
-    sorteio = f'{random.choice(d.animal)} + {random.choice(d.tema)}'
+    sorteio = f'{random.choice(dad_anim)} + {random.choice(dad_tema)}'
     texto_tema["text"] = sorteio
 
 # Interface Gráfica
@@ -42,14 +56,7 @@ botao_sim = ttk.Button(janela,
                        command=aperte_sim,
                        font="Arial 15"
                        )
-botao_sim.place(x=80, y=100)
-
-botao_janela2 = ttk.Button(janela,
-                           text="REGRAS",
-                           command=Rg.abrir_janela2,
-                           font="Arial 15"
-                           )
-botao_janela2.place(x=260, y=100)
+botao_sim.place(x=150, y=100)
 
 # linha 3
 texto_tema = ttk.Label(
@@ -57,6 +64,7 @@ texto_tema = ttk.Label(
     text="",
     font="Arial 25",
     background="#92CBEC",
+    justify="center",
 )
 texto_tema.grid(column=0, row=4, pady=150, padx=60)
 
