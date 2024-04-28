@@ -31,7 +31,7 @@ janela = ttk.Tk()
 janela.title('Random Theme')
 janela.geometry("420x420+350+150")
 janela.minsize(420, 420)
-janela.maxsize(420, 420)
+##janela.maxsize(420, 420)
 janela.configure(background="#92CBEC")
 
 # ESPAÇO
